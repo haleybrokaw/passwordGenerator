@@ -1,11 +1,12 @@
 // Assignment Code
 var enter;
-var confirmNumber;
-var confirmCharacter;
-var confirmUppercase;
-var confirmLowercase;
+var numbers= [1,2,3]
+var characters= ["!", "@", "#"]
+var uppercase= ["A", "B", "C"]
+var lowercase= ["a", "b", "c"]
 var generateBtn = document.querySelector("#generate");
 function generatePassword(){
+  var options= []
   var length= prompt("How long would you like your password?")
   if (length<8||length>128) {
     alert("Length is out of bounds. Try again")
@@ -15,6 +16,18 @@ function generatePassword(){
   var wantsLowercase = confrim("Do you want lowercase characters?")
   var wantsCharacters = confirm("Do you want special characters?")
   var wantsNumbers = confirm("Do you want to add numbers?")
+  if (wantsUppercase === true){
+    options= options.concat(uppercase)
+  }
+  if (wantsLowercase === true){
+    options= options.concat(lowercase)
+  }
+  if (wantsCharacters === true){
+    options=options.concat(characters)
+  }
+  if (wantsNumbers === true){
+    options=options.concat(numbers)
+  }
 }
 // Write password to the #password input
 function writePassword() {
