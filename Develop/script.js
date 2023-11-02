@@ -13,7 +13,7 @@ function generatePassword(){
     return
   }
   var wantsUppercase = confirm("Do you want uppercase characters?")
-  var wantsLowercase = confrim("Do you want lowercase characters?")
+  var wantsLowercase = confirm("Do you want lowercase characters?")
   var wantsCharacters = confirm("Do you want special characters?")
   var wantsNumbers = confirm("Do you want to add numbers?")
   if (wantsUppercase === true){
@@ -28,6 +28,12 @@ function generatePassword(){
   if (wantsNumbers === true){
     options=options.concat(numbers)
   }
+  var password=""
+  for (var i=0;i<length;i++){
+    var randomChar= options[Math.floor(Math.random()*options.length)]
+    password=password+randomChar
+  }
+  return password
 }
 // Write password to the #password input
 function writePassword() {
